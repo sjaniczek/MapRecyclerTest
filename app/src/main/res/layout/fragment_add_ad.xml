@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAdFragment">
+
+    <Button
+        android:id="@+id/buttonLoadImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="64dp"
+        android:text="Choose image"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGetImage"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoToMap" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="411dp"
+        android:layout_marginEnd="822dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="205dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPetName"
+        android:layout_width="172dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="70dp"
+        android:ems="10"
+        android:hint="@string/imie_zwierzecia"
+        android:inputType="textPersonName"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editTextOwnerName"
+        android:layout_width="172dp"
+        android:layout_height="64dp"
+        android:ems="10"
+        android:hint="Imie wlasciciela"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/editTextPetName" />
+
+    <EditText
+        android:id="@+id/editTextTextLostDate"
+        android:layout_width="172dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="140dp"
+        android:ems="10"
+        android:hint="Data"
+        android:inputType="date|textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextAddress"
+        android:layout_width="169dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="Adres zaginiecia"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPhoneNumber"
+        android:layout_width="172dp"
+        android:layout_height="64dp"
+        android:ems="10"
+        android:hint="Numer telefonu"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextLostDate" />
+
+    <Button
+        android:id="@+id/buttonGoToMap"
+        android:layout_width="67dp"
+        android:layout_height="48dp"
+        android:text="Mapa"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextAddress" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupBehaviour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPhoneNumber">
+
+        <RadioButton
+            android:id="@+id/radioButtonAggresive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pies przyjazny"
+            android:tag="Pies przyjazny"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFriendly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="Pies agresywny"
+            android:tag="Pies agresywny"
+            android:textSize="10sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonAcceptAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Dodaj ogloszenie"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewHeaderAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Informacje o zwierzeciu"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagePlaceholder"
+        android:layout_width="153dp"
+        android:layout_height="130dp"
+        android:src="@android:drawable/ic_menu_report_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/buttonLoadImage2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

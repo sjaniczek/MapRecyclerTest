@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.maprecyclertest.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_addAdFragment"
+            app:destination="@id/addAdFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_adDetailsFragment"
+            app:destination="@id/adDetailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_displayListFragment"
+            app:destination="@id/displayListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_storageFragment"
+            app:destination="@id/storageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAdFragment"
+        android:name="com.example.maprecyclertest.AddAdFragment"
+        android:label="fragment_add_ad"
+        tools:layout="@layout/fragment_add_ad" >
+        <action
+            android:id="@+id/action_addAdFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/displayListFragment"
+        android:name="com.example.maprecyclertest.DisplayListFragment"
+        android:label="fragment_display_list"
+        tools:layout="@layout/fragment_all_ads" />
+    <fragment
+        android:id="@+id/adDetailsFragment"
+        android:name="com.example.maprecyclertest.AdDetailsFragment"
+        android:label="fragment_ad_details"
+        tools:layout="@layout/fragment_ad_details" />
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="com.example.maprecyclertest.StorageFragment"
+        android:label="fragment_storage"
+        tools:layout="@layout/fragment_storage" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.maprecyclertest.MapsFragment"
+        android:label="MapsFragment" >
+        <action
+            android:id="@+id/action_mapsFragment_to_addAdFragment"
+            app:destination="@id/addAdFragment" />
+    </fragment>
+</navigation>
