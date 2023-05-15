@@ -29,7 +29,11 @@ data class AdData(
             "lostDate" to lostDate,
             "ownerName" to ownerName,
             "phoneNumber" to phoneNumber,
-            "decodedAddress" to decodedAddress
+            "decodedAddress" to decodedAddress,
+            "petBehavior" to petBehavior,
+            "imageUrl" to imageUrl,
+            "imageUri" to imageUri?.toString(),
+            "locationData" to locationData.toString()
         )
     }
     data class LocationData(val latitude: Double, val longitude: Double)

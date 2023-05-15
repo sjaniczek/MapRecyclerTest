@@ -107,6 +107,8 @@ class AddAdFragment : Fragment() {
             binding.editTextTextAddress.setText(adData.decodedAddress)
             binding.radioGroupBehaviour.findViewWithTag<RadioButton>(adData.petBehavior)?.isChecked = true//TODO DOESNT WORK
             binding.imagePlaceholder.setImageURI(adData.imageUri)
+            binding.editTextTextLostDate.setText(adData.lostDate)
+            binding.editTextTextPhoneNumber.setText(adData.phoneNumber)
         }
 
     }
@@ -150,9 +152,13 @@ class AddAdFragment : Fragment() {
             binding.editTextOwnerName.text.isNullOrEmpty() ||
             binding.editTextTextPhoneNumber.text.isNullOrEmpty() ||
             binding.editTextTextAddress.text.isNullOrEmpty() ||
+            binding.radioGroupBehaviour.findViewById<RadioButton>(binding.radioGroupBehaviour.checkedRadioButtonId).text.isNullOrEmpty() ||
+            viewModel.adData?.locationData == null ||
             imageUri == null
+
         ) {
-            Toast.makeText(context, "Please fill all fields and add an image", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "Please fill all fields and add an image", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, viewModel.adData?.locationData.toString(), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -161,8 +167,8 @@ class AddAdFragment : Fragment() {
         val ownerName = binding.editTextOwnerName.text.toString()
         val phoneNumber = binding.editTextTextPhoneNumber.text.toString()
         val decodedAddress = binding.editTextTextAddress.text.toString()
-        //val selectedRadioButtonText = binding.radioGroupBehaviour.findViewById<RadioButton>(binding.radioGroupBehaviour.checkedRadioButtonId).text.toString()
-        //val locationData = viewModel.adData?.locationData
+        val selectedRadioButtonText = binding.radioGroupBehaviour.findViewById<RadioButton>(binding.radioGroupBehaviour.checkedRadioButtonId).text.toString()
+        val locationData = viewModel.adData?.locationData
         val uploadTask = fileRef.putFile(imageUri)
 
         uploadTask.addOnSuccessListener { taskSnapshot ->
@@ -196,7 +202,8 @@ class AddAdFragment : Fragment() {
            ownerName = binding.editTextOwnerName.text.toString(),
            lostDate = binding.editTextTextLostDate.text.toString(),
            petBehavior = binding.radioGroupBehaviour.findViewById<RadioButton>(binding.radioGroupBehaviour.checkedRadioButtonId)?.text.toString(),
-           imageUri = if (imageUri != null) imageUri else viewModel.adData?.imageUri
+           imageUri = if (imageUri != null) imageUri else viewModel.adData?.imageUri,
+           phoneNumber = binding.editTextTextPhoneNumber.text.toString()
        )
 
        viewModel.saveFormData(adData)
