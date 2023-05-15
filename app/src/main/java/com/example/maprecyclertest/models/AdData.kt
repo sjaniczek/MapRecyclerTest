@@ -24,7 +24,7 @@ data class AdData(
     @Exclude
     fun toMap(): Map<String, Any?> {
         return mapOf(
-            "adIdd" to adId,
+            "adId" to adId,
             "petName" to petName,
             "lostDate" to lostDate,
             "ownerName" to ownerName,
@@ -32,10 +32,20 @@ data class AdData(
             "decodedAddress" to decodedAddress,
             "petBehavior" to petBehavior,
             "imageUrl" to imageUrl,
-            "imageUri" to imageUri?.toString(),
-            "locationData" to locationData.toString()
+            "locationData" to locationData
         )
     }
-    data class LocationData(val latitude: Double, val longitude: Double)
+
+//    fun getImageUriObject(): Uri? {
+//        return imageUri?.let {
+//            Uri.parse(it)
+//        }
+//    }
+    data class LocationData(
+        val latitude: Double = 0.0,
+        val longitude: Double = 0.0
+    ) {
+        constructor() : this(0.0, 0.0)
+    }
 }
 

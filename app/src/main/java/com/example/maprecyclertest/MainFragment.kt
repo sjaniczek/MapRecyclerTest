@@ -1,5 +1,6 @@
 package com.example.maprecyclertest
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.maprecyclertest.databinding.FragmentMainBinding
 import com.example.maprecyclertest.listfragments.MyAdsFragment
+import com.example.maprecyclertest.listfragments.TopAdsFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -26,6 +28,7 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
@@ -33,8 +36,8 @@ class MainFragment : Fragment() {
         pagerAdapter =
             object : FragmentStateAdapter(childFragmentManager, viewLifecycleOwner.lifecycle) {
                 private val fragments = arrayOf<Fragment>(
-                   MyAdsFragment(),
-                   MyAdsFragment(),
+                    TopAdsFragment(),
+                    PinsMapsFragment(),
                     MyAdsFragment()
                )
 
@@ -45,6 +48,8 @@ class MainFragment : Fragment() {
 
         // Set up the ViewPager with the sections adapter.
         with(binding) {
+            container.isUserInputEnabled = false
+            container.setOnTouchListener { _, _ -> true }
             container.adapter = pagerAdapter
             TabLayoutMediator(tabs, container) { tab, position ->
                 tab.text = when (position) {

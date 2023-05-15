@@ -13,7 +13,7 @@ class TopAdsFragment : AdsListFragment() {
 
     override fun getQuery(databaseReference: DatabaseReference): Query {
         // All my posts
-        return databaseReference.child("test")
+        return databaseReference.child("test-users")
             .limitToFirst(100)
     }
 }

@@ -52,8 +52,8 @@ abstract class AdsListFragment : Fragment() {
         return rootView
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         manager = LinearLayoutManager(activity)
         manager.reverseLayout = true
@@ -93,7 +93,7 @@ abstract class AdsListFragment : Fragment() {
                 // Bind Post to ViewHolder, setting OnClickListener for the star button
                 viewHolder.bindToAd(model) {
                     // Need to write to both places the post is stored
-                    val globalPostRef = database.child("posts").child(postRef.key!!)
+                    //val globalPostRef = database.child("posts").child(postRef.key!!)
                     //val userPostRef = database.child("user-posts").child(model.uid!!).child(postRef.key!!)
 
                     // Run two transactions

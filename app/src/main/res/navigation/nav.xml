@@ -16,11 +16,14 @@
             android:id="@+id/action_mainFragment_to_adDetailsFragment"
             app:destination="@id/adDetailsFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_displayListFragment"
-            app:destination="@id/displayListFragment" />
+            android:id="@+id/action_mainFragment_to_finishFragment"
+            app:destination="@id/finishFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_storageFragment"
-            app:destination="@id/storageFragment" />
+            android:id="@+id/action_mainFragment_to_pinsMapsFragment"
+            app:destination="@id/pinsMapsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_adDetailsFragment2"
+            app:destination="@id/adDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addAdFragment"
@@ -30,22 +33,15 @@
         <action
             android:id="@+id/action_addAdFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_addAdFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/displayListFragment"
-        android:name="com.example.maprecyclertest.DisplayListFragment"
-        android:label="fragment_display_list"
-        tools:layout="@layout/fragment_all_ads" />
     <fragment
         android:id="@+id/adDetailsFragment"
         android:name="com.example.maprecyclertest.AdDetailsFragment"
         android:label="fragment_ad_details"
         tools:layout="@layout/fragment_ad_details" />
-    <fragment
-        android:id="@+id/storageFragment"
-        android:name="com.example.maprecyclertest.StorageFragment"
-        android:label="fragment_storage"
-        tools:layout="@layout/fragment_storage" />
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.maprecyclertest.MapsFragment"
@@ -54,4 +50,14 @@
             android:id="@+id/action_mapsFragment_to_addAdFragment"
             app:destination="@id/addAdFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="com.example.maprecyclertest.FinishFragment"
+        android:label="fragment_finish"
+        tools:layout="@layout/fragment_finish" />
+    <fragment
+        android:id="@+id/pinsMapsFragment"
+        android:name="com.example.maprecyclertest.PinsMapsFragment"
+        android:label="fragment_pins_maps"
+        tools:layout="@layout/fragment_pins_maps" />
 </navigation>

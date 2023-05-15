@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 binding.fab.isVisible = true
                 binding.fab.setOnClickListener {
                    //navController.navigate(R.id.action_mainFragment_to_addAdFragment)
-                   navController.navigate(R.id.action_mainFragment_to_addAdFragment)
+                   navController.navigate(R.id.action_mainFragment_to_pinsMapsFragment)
                 }
             } else {
                 binding.fab.isGone = true

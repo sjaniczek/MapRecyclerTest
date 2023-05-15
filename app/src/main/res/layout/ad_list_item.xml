@@ -31,7 +31,7 @@
         below are the two widgets imageview and text view we are displaying inside our card view.
         -->
         <ImageView
-            android:id="@+id/img"
+            android:id="@+id/adImgUrl"
             android:layout_width="124dp"
             android:layout_height="191dp"
             android:layout_gravity="center"
@@ -62,6 +62,14 @@
             android:text="@string/app_name"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/adPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:text="TextView" />
 
 
     </androidx.cardview.widget.CardView>

@@ -106,7 +106,7 @@ class AddAdFragment : Fragment() {
             binding.editTextOwnerName.setText(adData.ownerName)
             binding.editTextTextAddress.setText(adData.decodedAddress)
             binding.radioGroupBehaviour.findViewWithTag<RadioButton>(adData.petBehavior)?.isChecked = true//TODO DOESNT WORK
-            binding.imagePlaceholder.setImageURI(adData.imageUri)
+            binding.imagePlaceholder.setImageURI(adData.imageUri)//adData.getImageUriObject())
             binding.editTextTextLostDate.setText(adData.lostDate)
             binding.editTextTextPhoneNumber.setText(adData.phoneNumber)
         }
@@ -158,7 +158,7 @@ class AddAdFragment : Fragment() {
 
         ) {
             //Toast.makeText(context, "Please fill all fields and add an image", Toast.LENGTH_SHORT).show()
-            Toast.makeText(context, viewModel.adData?.locationData.toString(), Toast.LENGTH_SHORT).show()
+          Toast.makeText(context, imageUri.toString(), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -176,12 +176,13 @@ class AddAdFragment : Fragment() {
                 imageUrl = uri.toString()
 
 //                }
-                val petAd = AdData(petId,petName,lostDate,ownerName,phoneNumber,decodedAddress,"",imageUrl, uri)//,selectedRadioButtonText,imageUrl,imageUri,locationData)
+                val petAd = AdData(petId,petName,lostDate,ownerName,phoneNumber,decodedAddress,selectedRadioButtonText,imageUrl,imageUri,locationData)//,selectedRadioButtonText,imageUrl,imageUri,locationData)
 
                 databaseRef.child(petId).setValue(petAd.toMap())
                     .addOnSuccessListener {
                         // Form uploaded successfully
                         Toast.makeText(context, "Form submitted", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(AddAdFragmentDirections.actionAddAdFragmentToMainFragment())
                     }
                     .addOnFailureListener { e ->
                         // Form upload failed
@@ -202,7 +203,7 @@ class AddAdFragment : Fragment() {
            ownerName = binding.editTextOwnerName.text.toString(),
            lostDate = binding.editTextTextLostDate.text.toString(),
            petBehavior = binding.radioGroupBehaviour.findViewById<RadioButton>(binding.radioGroupBehaviour.checkedRadioButtonId)?.text.toString(),
-           imageUri = if (imageUri != null) imageUri else viewModel.adData?.imageUri,
+           imageUri = ((if (imageUri != null) imageUri else viewModel.adData?.imageUri)),
            phoneNumber = binding.editTextTextPhoneNumber.text.toString()
        )
 
